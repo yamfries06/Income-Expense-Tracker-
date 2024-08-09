@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Expense Tracker Dashboard</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-header">Total Income</div>
+                <div class="card-body">
+                    <h5 class="card-title">$12,000</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-danger mb-3">
+                <div class="card-header">Total Expenses</div>
+                <div class="card-body">
+                    <h5 class="card-title">$5,000</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-info mb-3">
+                <div class="card-header">Net Savings</div>
+                <div class="card-body">
+                    <h5 class="card-title">$7,000</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="mt-5">Recent Transactions</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2024-08-01</td>
+                <td>Grocery Shopping</td>
+                <td>Food</td>
+                <td>$200</td>
+            </tr>
+            <!-- More rows as needed -->
+        </tbody>
+    </table>
+</div>
+{% endblock %}
