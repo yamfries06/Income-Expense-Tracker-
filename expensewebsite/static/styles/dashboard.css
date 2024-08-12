@@ -1,51 +1,42 @@
+/* Hide the sidebar by default */
+.sidebar {
+  width: 0;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0; 
+  overflow-x: hidden;
+  transition: width 0.3s;
+  padding: 10px; /* Add padding to ensure content isn’t cut off */
+  font-size: 16px; /* Ensure text is large enough */
+  line-height: 1.5; /* Set line height for readability */
+  font-family: Arial, sans-serif; /* Use a simple, readable font */
+}
 
-.bi {
-    display: inline-block;
-    width: 1rem;
-    height: 1rem;
-  }
-  
-  /*
-   * Sidebar
-   */
-  
-  @media (min-width: 768px) {
-    .sidebar .offcanvas-lg {
-      position: -webkit-sticky;
-      position: sticky;
-      top: 48px;
-    }
-    .navbar-search {
-      display: block;
-    }
-  }
-  
-  .sidebar .nav-link {
-    font-size: .875rem;
-    font-weight: 500;
-  }
-  
-  .sidebar .nav-link.active {
-    color: #2470dc;
-  }
-  
-  .sidebar-heading {
-    font-size: .75rem;
-  }
-  
-  /*
-   * Navbar
-   */
-  
-  .navbar-brand {
-    padding-top: .75rem;
-    padding-bottom: .75rem;
-    background-color: rgba(0, 0, 0, .25);
-    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
-  }
-  
-  .navbar .form-control {
-    padding: .75rem 1rem;
-  }
- 
-  
+/* Expand the sidebar on hover */
+.sidebar:hover {
+  width: 250px;
+  border: 1px solid yellow; /* Highlight when sidebar is expanded */
+}
+
+/* Hover area to trigger sidebar */
+.hover-area {
+  width: 100px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10; /* Ensure it’s on top */
+}
+
+/* Shift container-fluid to the right when sidebar is expanded */
+.container-fluid {
+  margin-left: 60px;
+  transition: margin-left 0.3s;
+}
+
+.sidebar:hover ~ .container-fluid {
+  margin-left: 250px;
+}
+
+
