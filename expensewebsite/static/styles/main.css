@@ -1,0 +1,26 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+.custom-header, .full-width-navbar .navbar {
+    width: 100%;
+    height: 50px; /* Height of the navbar */
+    margin: 0;
+    padding: 0;
+    position: fixed; /* Ensure the navbar stays fixed at the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+.container-fluid {
+    margin-left: 0; /* Remove any default margin */
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 50px; /* Add padding equal to the height of the navbar */
+}

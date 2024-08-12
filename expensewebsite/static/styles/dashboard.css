@@ -4,19 +4,14 @@
   height: 100vh;
   position: fixed;
   left: 0;
-  top: 0; 
+  padding-bottom: 0; 
   overflow-x: hidden;
   transition: width 0.3s;
-  padding: 10px; /* Add padding to ensure content isn’t cut off */
-  font-size: 16px; /* Ensure text is large enough */
-  line-height: 1.5; /* Set line height for readability */
-  font-family: Arial, sans-serif; /* Use a simple, readable font */
 }
 
 /* Expand the sidebar on hover */
 .sidebar:hover {
   width: 250px;
-  border: 1px solid yellow; /* Highlight when sidebar is expanded */
 }
 
 /* Hover area to trigger sidebar */
@@ -28,15 +23,4 @@
   top: 0;
   z-index: 10; /* Ensure it’s on top */
 }
-
-/* Shift container-fluid to the right when sidebar is expanded */
-.container-fluid {
-  margin-left: 60px;
-  transition: margin-left 0.3s;
-}
-
-.sidebar:hover ~ .container-fluid {
-  margin-left: 250px;
-}
-
 

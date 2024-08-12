@@ -22,7 +22,10 @@
   <body>
     <div class="container-fluid">
       <!-- Header Section -->
-      <header class="custom-header d-flex flex-column flex-md-row align-items-center border-bottom">
+      <div class="col-md-12">
+        {% include 'partials/_navbar.html' %}
+    </div>
+      <header class="custom-header d-flex flex-column flex-md-row align-items-center border-bottom w-100">
         <div class="col-md-3 mb-2 mb-md-0">
             <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
                 <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap">
@@ -31,12 +34,8 @@
             </a>
         </div>
     
-        <div class="col-md-6">
-            {% include 'partials/_navbar.html' %}
-        </div>
+        
     </header>
-      
-
 
       <!-- Main Content Section -->
       <div class="row">
