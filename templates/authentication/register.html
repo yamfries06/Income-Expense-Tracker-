@@ -1,0 +1,47 @@
+{% extends 'authentication/base_auth.html' %}
+
+{% block content %}
+
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .centered-form {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+</style>
+
+<div class="centered-form">
+    <form>
+        <fieldset>
+            <legend class="text-center">Register for a free account</legend>
+            <div class="row mb-3">
+                <label for="staticEmail" class="col-sm-3 col-form-label">Email</label>
+                <div class="col-sm-9">
+                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label mt-4">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label mt-4">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" autocomplete="off">
+            </div>
+            <div class="text-center">
+                <input type="submit" value="Register" class="btn btn-primary"/>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+{% endblock %}
