@@ -12,10 +12,14 @@
                     <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
                 </div>
             </div>
+            <div class="invalid_email" style="display:none"> </div> 
+
             <div class="mb-3">
                 <label for="exampleInputUsername1" class="form-label mt-4">Username</label>
                 <input type="Username" class="form-control" id="usernameField" aria-describedby="UsernameHelp" placeholder="Enter Username">
             </div>
+            <div class="invalid_username" style="display:none"> </div> 
+            </div>    <!--display none by default-->
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label mt-4">Email address</label>
                 <input type="email" class="form-control" id="emailField" aria-describedby="emailHelp" placeholder="Enter email">
@@ -25,9 +29,10 @@
                 <label for="exampleInputPassword1" class="form-label mt-4">Password</label>
                 <input type="password" class="form-control" id="passwordField" placeholder="Password" autocomplete="off">
             </div>
-            <div class="text-center">
+            <small class="float-end py-3 showPasswordToggle">SHOW</small> 
+            <div class="text-center pt-4">
                 <input type="submit" value="Register" class="btn btn-primary"/>
-            </div>
+            </div>            
         </fieldset>
     </form>
 </div>
