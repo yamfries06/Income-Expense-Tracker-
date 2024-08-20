@@ -16,6 +16,7 @@
     <link href="{% static 'styles/main.css' %}" rel="stylesheet">
     <link href="{% static 'styles/dashboard.css' %}" rel="stylesheet"> 
     <link href="{%static 'styles/navbar.css' %}" rel="stylesheet"> 
+    <link href="{%static 'styles/expenseList.css' %}" rel="stylesheet"> 
 
   </head>
   
@@ -25,17 +26,6 @@
       <div class="col-md-12">
         {% include 'partials/_navbar.html' %}
     </div>
-      <header class="custom-header d-flex flex-column flex-md-row align-items-center border-bottom w-100">
-        <div class="col-md-3 mb-2 mb-md-0">
-            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-                <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap">
-                    <use xlink:href="#bootstrap"></use>
-                </svg>
-            </a>
-        </div>
-    
-        
-    </header>
 
       <!-- Main Content Section -->
       <div class="row">
@@ -58,8 +48,6 @@
 
     <!-- Bootstrap JS and Custom Scripts -->
     <script src="{% static 'js/main.js' %}"></script>
-    <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.2/dist/chart.umd.js" integrity="sha384-eI7PSr3L1XLISH8JdDII5YN/njoSsxfbrkCTnJrzXt+ENP5MOVBxD+l6sEG4zoLp" crossorigin="anonymous"></script>
     <script src="{% static 'dashboard.js' %}"></script>
   </body>
 </html>

@@ -1,0 +1,12 @@
+.tableCaption {
+    caption-side: top; 
+    font-size: 1.25rem; 
+    font-weight: bold; 
+    text-align: left; 
+    margin-top: 50px; 
+    margin-left: 20px; 
+}
+
+.table.table.tableStriped {
+    margin-top: 60px; 
+}

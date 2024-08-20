@@ -141,3 +141,8 @@ STATIC_ROOT=os.path.join(BASE_DIR, 'staticfiles') #its fine if this path doens't
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+from django.contrib import messages
+
+MESSAGE_TAGS= { 
+    messages.ERROR: 'danger'
+}

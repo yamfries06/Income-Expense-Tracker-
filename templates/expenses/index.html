@@ -1,9 +1,11 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<h1>Expenses List</h1> 
 
-<table class="table table-striped">
+
+<table class="table tableStriped" style="margin-left: 240px;">
+  {%include 'partials/_messages.html'%}
+  <caption class="tableCaption">Expenses List</caption>	
   <thead>
     <tr>
       <th>#</th>
