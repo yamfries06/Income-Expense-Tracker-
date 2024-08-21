@@ -23,15 +23,7 @@
             z-index: 1000; /* Below navbar but above content */
         }
 
-        /* Collapsed Sidebar */
-        .sidebar.collapsed {
-            width: 80px;
-        }
-
-        /* Hide text when sidebar is collapsed */
-        .sidebar.collapsed .nav-item .nav-link-text {
-            display: none;
-        }
+    
 
         /* Toggle button container */
         .toggle-button-container {
@@ -41,10 +33,6 @@
             z-index: 1050; /* Ensure it is above the sidebar */
         }
 
-        /* Adjust position when sidebar is collapsed */
-        .sidebar.collapsed ~ .toggle-button-container {
-            left: 90px; /* Placed just outside the collapsed sidebar */
-        }
 
         /* Sidebar Heading */
         .sidebar-heading {
@@ -56,16 +44,7 @@
             color: #6c757d;
         }
 
-        /* Navbar Styling */
-        .navbar {
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1100; /* Ensure the navbar stays above the sidebar */
-            height: 70px; /* Adjust navbar height */
-        }
+
     </style>
 </head>
 
@@ -92,20 +71,30 @@
         <h6 class="sidebar-heading">Summaries</h6>
         <ul class="nav flex-column px-3">
             <li class="nav-item">
-                <a class="nav-link d-flex align-items-center gap-2" href="#">
-                    <span class="nav-link-text">Saved Reports</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link d-flex align-items-center gap-2" href="#">
-                    <span class="nav-link-text">Expense Summary</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                <a class="nav-link d-flex align-items-center gap-2" href="">
                     <span class="nav-link-text">Income Summary</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="">
+                    <span class="nav-link-text">Expense Summary</span>
+                </a>
+            </li>
+
+
+        <h6 class="sidebar-heading">Settings</h6>
+        <ul class="nav flex-column px-3">
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="{% url 'preferences' %}">
+                    <span class="nav-link-text" href="{% url 'preferences' %}">General</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="">
+                    <span class="nav-link-text">Account</span>
+                </a>
+            </li>
+            
         </ul>
     </div>
 

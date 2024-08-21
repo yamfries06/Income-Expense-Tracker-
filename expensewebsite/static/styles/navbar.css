@@ -1,0 +1,10 @@
+/* Navbar Styling */
+.navbar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1100; /* Ensure the navbar stays above the sidebar */
+    height: 70px; /* Adjust navbar height */
+}

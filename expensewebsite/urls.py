@@ -22,6 +22,7 @@ urlpatterns = [
     path('', include('expenses.urls')),
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
-    path('authentication/', include('authentication.urls')), 
+    path('authentication/', include('authentication.urls')), #url changed before this call so i must specify the new path 
+    path('preferences/', include('userpreferences.urls'))
 
 ]
