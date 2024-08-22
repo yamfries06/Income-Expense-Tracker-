@@ -3,52 +3,26 @@
 {% block content %}
 
 
-<table class="table tableStriped" style="margin-left: 240px;">
-  {%include 'partials/_messages.html'%}
-  <caption class="tableCaption">Expenses List</caption>	
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Expense</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>Bought Beer</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Bought Beer</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Bought Beer</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>Bought Beer</td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>Bought Beer</td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>Bought Beer</td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td>Bought Beer</td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td>Bought Beer</td>
-    </tr>
-    <tr>
-      <td>9</td>
-      <td>Bought Beer</td>
-    </tr>
-  </tbody>
-</table>
+{%include 'partials/_messages.html'%}
+<div class="container mt-4" style="padding-top: 80px; padding-left: 100px;"> 
+  <div class="row"> 
+    <div class="col-md-10"> 
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="">Expenses</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">My Expenses</li>
+        </ol>
+      </nav>
+    </div> 
+
+    <div class="col-md-2">
+      <a href="{%url 'add-expenses'%}" class="btn btn-primary">Add Expense</a> 
+    </div> 
+
+  </div> 
+</div> 
+
+
 {% endblock %}

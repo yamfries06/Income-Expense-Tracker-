@@ -1,5 +1,63 @@
 {% extends 'base.html'%}
 
 {%block content%}
-<h1>Add Expense</h1> 
+<div class="container mt-4" style="padding-top: 80px; padding-left: 260px;"> 
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="{%url 'expenses'%}">
+            Expenses
+        </a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">Add expenses</li>
+    </ol>
+  </nav>
+
+
+  <div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Add New Expense</h5>
+        </div>
+        <form action="{% url 'add-expenses' %}" method="post">
+            {% include 'partials/_messages.html' %}
+            {%csrf_token%}
+            <div class="card-body">
+                {% csrf_token %}
+                <div class="mb-3 form-group">
+                    <label for="date">Date of Expense</label>
+                    <input type="date" class="form-control" id="date" name="date" required>
+                </div>
+
+                <div class="mb-3 form-group">
+                    <label for="amount">Amount</label>
+                    <input type="number" class="form-control" id="amount" name="amount" required>
+                </div>
+
+                <div class="mb-3 form-group">
+                    <label for="description">Description</label>
+                    <input type="text" class="form-control" id="description" name="description" required>
+                </div>
+
+                <div class="mb-3 form-group">
+                    <label for="category">Category</label>
+                    <select name="category" id="category" class="form-select" required>
+                        {% for category in categories%}
+                            <option name="category" value="{{category.name}}">{{category.name}}</option> 
+                        {%endfor%}
+                    </select>
+                </div>
+
+                <div class="d-grid">
+                    <input type="submit" value="Submit" class="btn btn-primary">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+ 
+
+</div> 
+  
+
 {%endblock%}

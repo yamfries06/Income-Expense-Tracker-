@@ -6,12 +6,13 @@
     {% include 'partials/_messages.html' %}
     <h5>Preferred Currency</h5> 
     <form action="{%url 'preferences'%}" method="post"> 
+    {% csrf_token %}
     <div class="input-group mb-3">
         <label class="input-group-text" for="inputGroupSelect01">Currencies</label>
-        <select class="form-select" id="inputGroupSelect01">
+        <select class="form-select" id="inputGroupSelect01" name="currency">
         <option selected>Choose...</option>
         {%for currency in currencies%}
-        <option selected>{{currency.name}} - {{currency.value}}</option>
+        <option value>{{currency.name}} - {{currency.value}}</option>  <!-- now the key is currency and the value is the currency type-->
         {%endfor%}
         </select>
         <div class="input-group-append"> 

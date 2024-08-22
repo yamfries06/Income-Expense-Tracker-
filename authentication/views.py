@@ -98,3 +98,11 @@ class EmailValidationView(View):
         except Exception as e:
             return JsonResponse({'error': str(e)}, status=500)
         
+class LogoutView(View):
+    def post(self, request): 
+        auth.logout(request)
+        messages.success(request, "You have been logged out")
+        return redirect('login')
+
+
+        

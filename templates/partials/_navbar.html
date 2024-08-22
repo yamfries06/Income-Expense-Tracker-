@@ -13,10 +13,33 @@
                 <input class="form-control me-sm-2" type="search" placeholder="Search">
                 <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
             </form>
-            <div class="col-md-3 ms-auto text-end">
-                <button type="button" onclick="window.location.href='/authentication/login';" class="btn btn-primary">Login</button>
-                <button type="button" onclick="window.location.href='/authentication/register';" class="btn btn-primary">Sign-up</button>
+
+            {% if not user.is_authenticated %}
+            <div class="d-flex ms-auto">
+                <form action="{% url 'login' %}" method="GET" name="login" class="me-2">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+                <form action="{% url 'register' %}" method="GET" name="register">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </form>
             </div>
+
+            
+            {% endif %}
+
+            {% if user.is_authenticated %}
+            <div class="d-flex ms-auto" style="padding-right: 70px">
+                <form action="{% url 'logout' %}" method="POST" name="logout" class="me-2">
+                    {% csrf_token %}
+                    <div class="col-md-3 ms-auto text-end" style="padding-right: 50px">
+                        <button type="submit" class="btn btn-primary">Logout</button>
+                    </div>
+                </form>            
+            </div> 
+            {% endif %}
+
         </div>
     </div>
 </nav>

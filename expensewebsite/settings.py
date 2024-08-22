@@ -86,7 +86,7 @@ print("DB_PASSWORD:", os.getenv('DB_PASSWORD'))
 print("DB_HOST:", os.getenv('DB_HOST'))
 
 DATABASES = {
-        'default': {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.getenv('DB_NAME'),
         'USER': os.getenv('DB_USER'),
@@ -134,7 +134,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS=[os.path.join(BASE_DIR, 'static')] # tells django where to find additioanl static files
+STATICFILES_DIRS=[os.path.join(BASE_DIR, 'expensewebsite/static')] # tells django where to find additioanl static files
 STATIC_ROOT=os.path.join(BASE_DIR, 'staticfiles') #its fine if this path doens't exist at the start -- will copy all static files from apps into this new directory
 
 # Default primary key field type
