@@ -35,17 +35,17 @@
                 </div>
 
                 <div class="mb-3 form-group">
-                    <label for="description">Description</label>
-                    <input type="text" class="form-control" id="description" name="description" required>
-                </div>
-
-                <div class="mb-3 form-group">
                     <label for="category">Category</label>
                     <select name="category" id="category" class="form-select" required>
                         {% for category in categories%}
                             <option name="category" value="{{category.name}}">{{category.name}}</option> 
                         {%endfor%}
                     </select>
+                </div>
+
+                <div class="mb-3 form-group">
+                    <label for="description">Description</label>
+                    <input type="text" class="form-control" id="description" name="description" required>
                 </div>
 
                 <div class="d-grid">

@@ -13,7 +13,6 @@ class currencies(View): #inheriting View, which gives the class the ability to p
         return self.render(request)
         
     def post(self, request): 
-        print("pepe")
         user_preferences, created = UserPreference.objects.get_or_create(user=request.user)
         if user_preferences: 
             currency=request.POST['currency']
