@@ -14,7 +14,7 @@ class Expense(models.Model): #allows class to connect to the database
         return self.category #returns a string that represents the object 
     
     class Meta: 
-        ordering: ['-date']
+        ordering = ['-date']
 
 
 class Category(models.Model):
