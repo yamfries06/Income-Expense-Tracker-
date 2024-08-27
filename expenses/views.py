@@ -7,6 +7,9 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import io
 import base64
+import numpy as np 
+from django.views import View
+
 
 def index(request): 
     if not request.user.is_authenticated: 
@@ -82,7 +85,6 @@ def edit_expense(request, id):
         messages.success(request, 'Handled Request')
         return render(request, 'expenses/index.html', context)
 
-
 def delete_expense(request, id):
     expense = Expense.objects.get(pk=id)
     expense.delete()
@@ -90,32 +92,68 @@ def delete_expense(request, id):
     return redirect ('expenses')  #redirects to url with name 'expenses' 
 
 
-def generate_summary(request): 
-    expenses = Expense.objects.filter(owner=request.user)
-    categoryTotal = {} 
-    for expense in expenses: 
-        categoryTotal[expense.category] = categoryTotal.get(expense.category, 0) + expense.amount
-    
-    labels = categoryTotal.keys() 
-    sizes = categoryTotal.values() 
-    colors = ["brown", "hotpink", "blue", "#4CAF50"]
+class generate_summary(View): 
+    def get(self, request):
+        return render(request, 'expenses/summary.html')
+    def post(self, request): 
+        if request.user.is_authenticated: 
+            if request.POST.get('graphCategory')=='PieGraph': 
+                expenses = Expense.objects.filter(owner=request.user)
+                categoryTotal = {} 
+                for expense in expenses: 
+                    categoryTotal[expense.category] = categoryTotal.get(expense.category, 0) + expense.amount
+                
+                labels = categoryTotal.keys() 
+                sizes = categoryTotal.values() 
+                colors = ["brown", "hotpink", "blue", "#4CAF50"]
 
-    # Create the pie chart
-    plt.figure(figsize=(6, 6))  # Define the figure size
-    plt.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%')
-    plt.axis('equal')  # Equal aspect ratio ensures the pie is a circle
+                # Create the pie chart
+                plt.figure(figsize=(6, 6))  # Define the figure size
+                plt.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%')
+                plt.axis('equal')  # Equal aspect ratio ensures the pie is a circle
 
-    # Convert plot to PNG image and encode to base64
-    buffer = io.BytesIO()  # Create an in-memory buffer
-    plt.savefig(buffer, format='png')  # Save the plot as PNG to the buffer
-    buffer.seek(0)  # Move the pointer to the start of the stream
+                # Convert plot to PNG image and encode to base64
+                buffer = io.BytesIO()  # Create an in-memory buffer
+                plt.savefig(buffer, format='png')  # Save the plot as PNG to the buffer
+                buffer.seek(0)  # Move the pointer to the start of the stream
 
-    # Encode image to base64
-    image_base64 = base64.b64encode(buffer.getvalue()).decode('utf-8')
-    buffer.close()  # Close the buffer
-    
-    # Pass the base64 image to the template
-    return render(request, 'expenses/summary.html', {'image_base64': image_base64})
+                # Encode image to base64
+                image_base64 = base64.b64encode(buffer.getvalue()).decode('utf-8')
+                buffer.close()  # Close the buffer
+                
+                # Pass the base64 image to the template
+                return render(request, 'expenses/summary.html', {'image_base64': image_base64})
+            
+            if request.POST.get('graphCategory')=='BarGraph': 
+                expenses = Expense.objects.filter(owner=request.user)
+                dayTotal = {} 
+                for expense in expenses: 
+                    dayTotal[expense.date] = dayTotal.get(expense.date, 0) + expense.amount
+                days=dayTotal.keys() 
+                amounts=dayTotal.values()       
+                plt.bar(days, amounts, color="brown")
+                plt.xlabel("dates")
+                plt.ylabel("spent")
+                plt.title("Spendings overtime")
+           
+               
+
+                # Convert plot to PNG image and encode to base64
+                buffer = io.BytesIO()  # Create an in-memory buffer
+                plt.savefig(buffer, format='png')  # Save the plot as PNG to the buffer
+                buffer.seek(0)  # Move the pointer to the start of the stream
+
+                # Encode image to base64
+                image_base64 = base64.b64encode(buffer.getvalue()).decode('utf-8')
+                buffer.close()  # Close the buffer
+
+                return render(request, 'expenses/summary.html', {'image_base64': image_base64})
+
+            
+        else: 
+            messages.error(request, "must log in before seeing expense summaries")
+            return render(request, 'base.html')
+        
 
 
 
