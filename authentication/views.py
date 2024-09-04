@@ -8,7 +8,6 @@ from django.contrib import messages
 from django.contrib import auth
 from django.shortcuts import redirect
 
-
 # Create your views here.
 
 class RegistrationView(View):
@@ -22,7 +21,7 @@ class RegistrationView(View):
         username = request.POST.get('username')
         email = request.POST.get('email') 
         password = request.POST.get('password')
-
+    
         if not User.objects.filter(username=username).exists():
             if not User.objects.filter(email=email).exists(): 
                 if len(password) < 6:
@@ -31,6 +30,7 @@ class RegistrationView(View):
         
                 user = User.objects.create_user(username=username, email=email)
                 user.set_password(password)
+
                 user.save() 
                 messages.success(request, 'Account succesfully created') #stored in hte session so it can be displayed in the next HTTP Response when render the website again
                 return render(request, 'authentication/register.html')
@@ -53,8 +53,6 @@ class loginView(View):
             else: 
                 messages.error(request, 'Invalid Credentials, try again')
             return render(request, 'authentication/login.html')
-
-                
 
 class UsernameValidationView(View): 
     def post(self, request):

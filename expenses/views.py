@@ -124,20 +124,31 @@ class generate_summary(View):
                 # Pass the base64 image to the template
                 return render(request, 'expenses/summary.html', {'image_base64': image_base64})
             
-            if request.POST.get('graphCategory')=='BarGraph': 
+            if request.POST.get('graphCategory') == 'BarGraph':
+                # Filter expenses for the logged-in user
                 expenses = Expense.objects.filter(owner=request.user)
+                
                 dayTotal = {} 
                 for expense in expenses: 
                     dayTotal[expense.date] = dayTotal.get(expense.date, 0) + expense.amount
-                days=dayTotal.keys() 
-                amounts=dayTotal.values()       
-                plt.bar(days, amounts, color="brown")
-                plt.xlabel("dates")
-                plt.ylabel("spent")
-                plt.title("Spendings overtime")
+                
+                # Extract sorted dates and corresponding amounts
+                sorted_dates = sorted(dayTotal.keys())
+                amounts = [dayTotal[date] for date in sorted_dates]
+                formatted_dates = [date.strftime('%Y-%m-%d') for date in sorted_dates]
+                
+                plt.bar(formatted_dates, amounts, color="brown")
+                plt.xlabel("Dates")
+                plt.ylabel("Amount Spent")
+                plt.title("Spendings Over Time")
+                
+                # Rotate x-axis labels if there are many dates
+                plt.xticks(rotation=45, ha="right")
+                
+                plt.tight_layout()  # Adjust layout to prevent clipping of labels
+
            
                
-
                 # Convert plot to PNG image and encode to base64
                 buffer = io.BytesIO()  # Create an in-memory buffer
                 plt.savefig(buffer, format='png')  # Save the plot as PNG to the buffer
