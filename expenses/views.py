@@ -14,7 +14,6 @@ from django.views import View
 def index(request): 
     if not request.user.is_authenticated: 
         messages.error(request, "must login first")
-        return render(request, 'expenses/index.html')
     else:  
         expenses = Expense.objects.filter(owner=request.user)
         try:
@@ -29,7 +28,7 @@ def index(request):
         }
         print("Context:", context)
 
-        return render(request, 'expenses/index.html', context)
+    return render(request, 'expenses/index.html', context)
     
 
 def add_expense(request):
@@ -59,9 +58,7 @@ def add_expense(request):
         return redirect('expenses') 
     
 def edit_expense(request, id): 
-
     expense=Expense.objects.get(pk=id) #finding the expense object with primary key = id
-    
     if request.method == 'GET': 
         allCategories=Category.objects.all() 
         context = {
@@ -70,7 +67,6 @@ def edit_expense(request, id):
             'categories': allCategories
         }
         return render(request, 'expenses/edit_expenses.html', context)
-    
     elif request.method == 'POST': 
         expense.amount=request.POST['amount']
         expense.date=request.POST['date']
@@ -78,7 +74,10 @@ def edit_expense(request, id):
         expense.description=request.POST['description']
         expense.save()
 
-        expenses = Expense.objects.all() 
+
+        expenses = Expense.objects.filter(owner=request.user)
+
+
         context = {
             'expenses': expenses,
         }
@@ -90,7 +89,6 @@ def delete_expense(request, id):
     expense.delete()
     messages.success(request, 'expense deleted')
     return redirect ('expenses')  #redirects to url with name 'expenses' 
-
 
 class generate_summary(View): 
     def get(self, request):
@@ -137,17 +135,18 @@ class generate_summary(View):
                 amounts = [dayTotal[date] for date in sorted_dates]
                 formatted_dates = [date.strftime('%Y-%m-%d') for date in sorted_dates]
                 
+                if plt:  
+                    plt.clf()
                 plt.bar(formatted_dates, amounts, color="brown")
                 plt.xlabel("Dates")
                 plt.ylabel("Amount Spent")
                 plt.title("Spendings Over Time")
                 
                 # Rotate x-axis labels if there are many dates
-                plt.xticks(rotation=45, ha="right")
+                plt.xticks(rotation=45)
                 
                 plt.tight_layout()  # Adjust layout to prevent clipping of labels
 
-           
                
                 # Convert plot to PNG image and encode to base64
                 buffer = io.BytesIO()  # Create an in-memory buffer

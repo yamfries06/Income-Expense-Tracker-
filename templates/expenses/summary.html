@@ -6,7 +6,7 @@
         <form action="{% url 'expense_summary' %}" method="POST">
             {% csrf_token %}
             <label for="graphCategoryategory">Category</label>
-            <select name="graphCategory" id="graphCategory" class="form-select" required>
+            <select name="graphCategory" id="graphCategory" class="form-select" required> <!-- name is grapgCategory, key is Bar Graph-->
                 <option value="BarGraph">{{"Bar Graph"}}</option> 
                 <option value="PieGraph">{{"Pie Graph"}}</option> 
             </select>
