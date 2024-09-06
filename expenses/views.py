@@ -27,8 +27,8 @@ def index(request):
             'currency': currency,
         }
         print("Context:", context)
-
-    return render(request, 'expenses/index.html', context)
+        return render(request, 'expenses/index.html', context)
+    return render(request, 'expenses/index.html')
     
 
 def add_expense(request):
