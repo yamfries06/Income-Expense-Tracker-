@@ -14,6 +14,8 @@ from pathlib import Path
 import os 
 import dj_database_url
 
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,9 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-r$jte7-sg=izr-yc^v3i_5-lj=!=yhx*_nrdn8_f*6)_p9xo5#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://trackify-ad7x.onrender.com', 'localhost']
 
 
 # Application definition
@@ -53,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'expensewebsite.urls'
@@ -85,6 +88,8 @@ print("DB_USER:", os.getenv('DB_USER'))
 print("DB_PASSWORD:", os.getenv('DB_PASSWORD'))
 print("DB_HOST:", os.getenv('DB_HOST'))
 
+
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 DATABASES = {
     'default':  {
@@ -136,6 +141,8 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR, 'expensewebsite/static')] # tells django where to find additioanl static files
 STATIC_ROOT=os.path.join(BASE_DIR, 'staticfiles') #its fine if this path doens't exist at the start -- will copy all static files from apps into this new directory
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
