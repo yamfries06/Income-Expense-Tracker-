@@ -45,8 +45,7 @@
             <td>{{expense.date}}</td> 
             <td>{{expense.amount}}</td> 
             <td>{{expense.category}}</td>
-            <td>{{expense.description}}</td
-              >
+            <td>{{expense.description}}</td>
             <td>
               <a href="{%url 'edit-expense' expense.id %}" class="btn btn-secondary"> 
                 Edit  
@@ -54,8 +53,6 @@
             </td> 
           {% endfor %}
         </tbody> 
-
-        
       </table> 
       {%endif%}
     </div> 
