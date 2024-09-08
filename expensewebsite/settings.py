@@ -27,9 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-r$jte7-sg=izr-yc^v3i_5-lj=!=yhx*_nrdn8_f*6)_p9xo5#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['https://trackify-ad7x.onrender.com', 'localhost']
+ALLOWED_HOSTS = ['trackify-ad7x.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -88,20 +88,25 @@ print("DB_USER:", os.getenv('DB_USER'))
 print("DB_PASSWORD:", os.getenv('DB_PASSWORD'))
 print("DB_HOST:", os.getenv('DB_HOST'))
 
-
+#postgresql://trackify_django_render_user:iPHCvhaR8fq9VY53OEBevtf2OOLrDPz9@dpg-crecdmlsvqrc73fi4330-a.oregon-postgres.render.com/trackify_django_render
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DB_NAME', 'default_db_name'),  # Use default values if environment variables are not set
+        'NAME': os.getenv('DB_NAME', 'default_db_name'),
         'USER': os.getenv('DB_USER', 'default_user'),
         'PASSWORD': os.getenv('DB_PASSWORD', 'default_password'),
         'HOST': os.getenv('DB_HOST', 'localhost'),
         'PORT': os.getenv('DB_PORT', '5432'),
-    }
+    },
 }
 
-DATABASES['default'] = dj_database_url.parse("postgresql://trackify_django_render_user:iPHCvhaR8fq9VY53OEBevtf2OOLrDPz9@dpg-crecdmlsvqrc73fi4330-a.oregon-postgres.render.com/trackify_django_render")
+# Override with DATABASE_URL if it exists (for Render production)
+DATABASE_URL = os.getenv('DATABASE_URL')
+if DATABASE_URL:
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+
+
 
 
 
