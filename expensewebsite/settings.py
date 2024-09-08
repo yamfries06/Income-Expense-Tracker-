@@ -89,18 +89,20 @@ print("DB_PASSWORD:", os.getenv('DB_PASSWORD'))
 print("DB_HOST:", os.getenv('DB_HOST'))
 
 
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 DATABASES = {
-    'default':  {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'NAME': os.getenv('DB_NAME', 'default_db_name'),  # Use default values if environment variables are not set
+        'USER': os.getenv('DB_USER', 'default_user'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'default_password'),
         'HOST': os.getenv('DB_HOST', 'localhost'),
-        
+        'PORT': os.getenv('DB_PORT', '5432'),
     }
 }
+
+DATABASES['default'] = dj_database_url.parse("postgresql://trackify_django_render_user:iPHCvhaR8fq9VY53OEBevtf2OOLrDPz9@dpg-crecdmlsvqrc73fi4330-a.oregon-postgres.render.com/trackify_django_render")
+
 
 
 
