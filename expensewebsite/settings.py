@@ -13,7 +13,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os 
 import dj_database_url
+from dotenv import load_dotenv
 
+
+load_dotenv() 
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -97,7 +100,7 @@ DATABASES = {
         # The environment variable should contain the full URL for Render's Postgres service
         'NAME': os.getenv('DB_NAME', 'default_db_name'),
         'USER': os.getenv('DB_USER', 'default_user'),
-        'PASSWORD': os.getenv('DB_PASSWORD', 'default_password'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
         'HOST': os.getenv('DB_HOST', 'localhost'),
         'PORT': os.getenv('DB_PORT', '5432'),
     }
