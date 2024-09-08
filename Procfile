@@ -1,1 +1,1 @@
-web: gunicorn django-income-expense-website.wsgi
+web: gunicorn wsgi
