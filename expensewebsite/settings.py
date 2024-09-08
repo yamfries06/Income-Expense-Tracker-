@@ -98,7 +98,7 @@ DATABASES = {
         'NAME': os.getenv('DB_NAME', 'default_db_name'),
         'USER': os.getenv('DB_USER', 'default_user'),
         'PASSWORD': os.getenv('DB_PASSWORD', 'default_password'),
-        'HOST': os.getenv('DB_HOST', 'dpg-crehpr0gph6c73esa3ng-a.oregon-postgres.render.com'),
+        'HOST': os.getenv('DB_HOST', 'localhost'),
         'PORT': os.getenv('DB_PORT', '5432'),
     }
 }
@@ -107,8 +107,6 @@ DATABASE_URL = os.getenv('DATABASE_URL')  # This environment variable should be 
 
 if DATABASE_URL:
     DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-
-
 
 
 
