@@ -16,13 +16,12 @@ The application works flawlessly on my local machine, including all registration
 
 All database migrations and functionalities, including user registration and CRUD operations, work as expected.
 
-<img width="801" alt="Screenshot 2024-09-08 at 12 50 20 PM" src="https://github.com/user-attachments/assets/32972<img width="1702" alt="Screenshot 2024-09-08 at 5 25 30 PM" src="https://github.com/user-attachments/assets/a0b38915-5d85-4611-ac6d-02bbc2d0395a">
-4e0-b540-4fe9-b50e-d038f055a54d">
+<img width="1710" alt="Screenshot 2024-09-08 at 5 24 39 PM" src="https://github.com/user-attachments/assets/d4dfdfe5-5920-4ab6-81a4-72e8014d6a88">
 
-<img width="1710" alt="Screenshot 2024-09-08 at 5 24 39 PM" src="https://github.com/user-attachments/assets/5b3244d9-9370-4ead-8173-b927636762e2">
-<img width="1702" alt="Screenshot 20<img width="1700" alt="Screenshot 2024-09-08 at 5 25 17 PM" src="https://github.com/user-attachments/assets/93093d74-9895-4338-857d-0c91e406c03d">
-24-09-08 at 5 26 54 PM" src="https://github.com/user-attachments/ass<img width="1706" alt="Screenshot 2024-09-08 at 5 25 44 PM" src="https://github.com/user-attachments/assets/9a076339-2965-47d4-a2e4-0e281a316e48">
-ets/54e44edd-d746-435b-8927-35422e8805db">
+<img width="801" alt="Screenshot 2024-09-08 at 12 50 20 PM" src="https://github.com/user-attachments/assets/93deb343-a31c-4cdf-9816-2e0098ce8868">
 
+<img width="1700" alt="Screenshot 2024-09-08 at 5 25 17 PM" src="https://github.com/user-attachments/assets/75c42af7-caee-4c9b-a264-7f438c299435">
+<img width="1702" alt="Screenshot 2024-09-08 at 5 25 30 PM" src="https://github.com/user-attachments/assets/4fa97297-c9eb-44d6-bc6b-1ce7f96ff75e">
 
+<img width="1706" alt="Screenshot 2024-09-08 at 5 25 44 PM" src="https://github.com/user-attachments/assets/01959631-8144-4154-9409-c7e871574e02">
 
