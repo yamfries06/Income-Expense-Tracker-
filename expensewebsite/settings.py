@@ -90,19 +90,21 @@ print("DB_HOST:", os.getenv('DB_HOST'))
 
 #postgresql://trackify_django_render_user:iPHCvhaR8fq9VY53OEBevtf2OOLrDPz9@dpg-crecdmlsvqrc73fi4330-a.oregon-postgres.render.com/trackify_django_render
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
+        # The environment variable should contain the full URL for Render's Postgres service
         'NAME': os.getenv('DB_NAME', 'default_db_name'),
         'USER': os.getenv('DB_USER', 'default_user'),
         'PASSWORD': os.getenv('DB_PASSWORD', 'default_password'),
-        'HOST': os.getenv('DB_HOST', 'localhost'),
+        'HOST': os.getenv('DB_HOST', 'dpg-crehpr0gph6c73esa3ng-a.oregon-postgres.render.com'),
         'PORT': os.getenv('DB_PORT', '5432'),
-    },
+    }
 }
 
-# Override with DATABASE_URL if it exists (for Render production)
-DATABASE_URL = os.getenv('DATABASE_URL')
+DATABASE_URL = os.getenv('DATABASE_URL')  # This environment variable should be set in Render
+
 if DATABASE_URL:
     DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
