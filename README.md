@@ -17,13 +17,20 @@ The application works flawlessly on my local machine, including all registration
 All database migrations and functionalities, including user registration and CRUD operations, work as expected.
 
 To run the app locally (where all features are functional):
+
+1. Clone the repository:
+   ```bash
+   git clone <repo-link>
+2. Install dependencies:
+  ```bash
+  pip install -r requirements.txt
+  ```
+
+3. Apply migrations:
+  ```bash
+  python manage.py migrate
+  ```
+4. Run server:
 ```bash
-1. Clone the repository: git clone <repo-link>
-Install dependencies: pip install -r requirements.txt
-Apply migrations: python manage.py migrate
-Run the server: python manage.py runserver
-Technology Stack
-Backend: Django
-Database: PostgreSQL
-Frontend: HTML, CSS, Bootstrap
-Hosting: Render
+  python manage.py runserver
+
