@@ -15,12 +15,9 @@ The application works flawlessly on my local machine, including all registration
 ## Locally:
 
 All database migrations and functionalities, including user registration and CRUD operations, work as expected.
-On Render:
 
-The current deployment showcases the app’s layout, structure, and existing functionality. I plan to update this deployment soon to include a fully working registration and database system.
-Local Setup
 To run the app locally (where all features are functional):
-
+'''bash
 Clone the repository: git clone <repo-link>
 Install dependencies: pip install -r requirements.txt
 Apply migrations: python manage.py migrate
@@ -30,4 +27,3 @@ Backend: Django
 Database: PostgreSQL
 Frontend: HTML, CSS, Bootstrap
 Hosting: Render
-
