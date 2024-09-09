@@ -98,8 +98,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         # The environment variable should contain the full URL for Render's Postgres service
-        'NAME': os.getenv('DB_NAME', 'default_db_name'),
-        'USER': os.getenv('DB_USER', 'default_user'),
+        'NAME': os.getenv('DB_NAME', 'local_db_name'),
+        'USER': os.getenv('DB_USER', 'local_user'),
         'PASSWORD': os.getenv('DB_PASSWORD'),
         'HOST': os.getenv('DB_HOST', 'localhost'),
         'PORT': os.getenv('DB_PORT', '5432'),
@@ -109,7 +109,11 @@ DATABASES = {
 DATABASE_URL = os.getenv('DATABASE_URL')  # This environment variable should be set in Render
 
 if DATABASE_URL:
-    DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+    DATABASES['default'] = dj_database_url.parse(
+        DATABASE_URL,
+        conn_max_age=600,
+        ssl_require=True
+    )
 
 
 
