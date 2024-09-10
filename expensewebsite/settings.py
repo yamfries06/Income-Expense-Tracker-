@@ -86,14 +86,13 @@ WSGI_APPLICATION = 'wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 
-print("DB_NAME:", os.getenv('DB_NAME'))
-print("DB_USER:", os.getenv('DB_USER'))
-print("DB_PASSWORD:", os.getenv('DB_PASSWORD'))
-print("DB_HOST:", os.getenv('DB_HOST'))
-
-#postgresql://trackify_django_render_user:iPHCvhaR8fq9VY53OEBevtf2OOLrDPz9@dpg-crecdmlsvqrc73fi4330-a.oregon-postgres.render.com/trackify_django_render
+# print("DB_NAME:", os.getenv('DB_NAME'))
+# print("DB_USER:", os.getenv('DB_USER'))
+# print("DB_PASSWORD:", os.getenv('DB_PASSWORD'))
+# print("DB_HOST:", os.getenv('DB_HOST'))
 
 
+''' 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -105,16 +104,13 @@ DATABASES = {
         'PORT': os.getenv('DB_PORT', '5432'),
     }
 }
+'''
 
 DATABASE_URL = os.getenv('DATABASE_URL')  # This environment variable should be set in Render
 
-if DATABASE_URL:
-    DATABASES['default'] = dj_database_url.parse(
-        DATABASE_URL,
-        conn_max_age=600,
-        ssl_require=True
-    )
-
+DATABASES = {
+    'default': dj_database_url.parse(DATABASE_URL) 
+}
 
 
 
