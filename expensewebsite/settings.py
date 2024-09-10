@@ -91,6 +91,7 @@ WSGI_APPLICATION = 'wsgi.application'
 # print("DB_PASSWORD:", os.getenv('DB_PASSWORD'))
 # print("DB_HOST:", os.getenv('DB_HOST'))
 
+#postgresql://trackify_django_render_user:iPHCvhaR8fq9VY53OEBevtf2OOLrDPz9@dpg-crecdmlsvqrc73fi4330-a.oregon-postgres.render.com/trackify_django_render
 
 ''' 
 DATABASES = {
@@ -108,10 +109,18 @@ DATABASES = {
 
 DATABASE_URL = os.getenv('DATABASE_URL')  # This environment variable should be set in Render
 
-DATABASES = {
-    'default': dj_database_url.parse(DATABASE_URL) 
-}
-
+if DATABASE_URL:
+    try:
+        DATABASES = {
+            'default': dj_database_url.parse(DATABASE_URL)
+        }
+        print(f"Successfully parsed DATABASE_URL: {DATABASE_URL}")
+        print(DATABASES)
+    except ValueError as e:
+        print(f"Error parsing DATABASE_URL: {e}")
+        raise
+else:
+    raise Exception("DATABASE_URL is not set in the environment.")
 
 
 # Password validation
