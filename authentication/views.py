@@ -33,7 +33,8 @@ class RegistrationView(View):
 
                 user.save() 
                 messages.success(request, 'Account succesfully created') #stored in hte session so it can be displayed in the next HTTP Response when render the website again
-                return render(request, 'authentication/register.html')
+                return render(request, 'base.html')
+            
         return render(request, 'authentication/register.html')
     
 class loginView(View): 
@@ -48,7 +49,7 @@ class loginView(View):
             user=auth.authenticate(username=username, password=password)
             if user: 
                 auth.login(request, user)
-                messages.success(request, 'Welcome, '+user.username+'You are now logged in')
+                messages.success(request, 'Welcome, '+user.username+'. You are now logged in')
                 return redirect('expenses')
             else: 
                 messages.error(request, 'Invalid Credentials, try again')
