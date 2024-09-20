@@ -7,7 +7,8 @@ Expense Management: Track expenses with categories, dates, and amounts. Update o
 Data Visualization: Provides insights into spending habits through visual tools.
 
 ## Deployment
-Trackify is deployed on Render. You can check it out here: [Trackify on Render](https://trackify-ad7x.onrender.com).
+Trackify is deployed on Render. You can check it out here: [Trackify on Render](https://trackify-ad7x.onrender.com). 
+For limited access of features without registration you can login with -->  Username: testing1  Pasword: testing
 
 ## Current Status:
 The application works flawlessly on my local machine, including all registration and expense management features. However, due to a migration issue on Render, the registration link is temporarily unavailable. This is a known issue, and I'm actively working on a fix.
