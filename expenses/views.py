@@ -7,7 +7,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import io
 import base64
-import numpy as np 
+from datetime import datetime
 from django.views import View
 
 
@@ -42,17 +42,25 @@ def add_expense(request):
 
     if request.method=='POST': 
         amount=request.POST['amount']
+        description=request.POST['description']
+        category=request.POST['category']
+        date=request.POST['date']
+
         if not amount:
             messages.error(request, "Amount not specified")
             return render(request, 'expenses/add_expenses.html', context)
-
-        description=request.POST['description']
         if not description: 
             messages.error(request, "description not specified")  
             return render(request, 'expenses/add_expenses.html', context)
 
-        date=request.POST['date']
-        category=request.POST['category']
+        expected_format="%Y-%m-%d"
+        try: 
+            datetime.strptime(date, expected_format)
+        except ValueError:
+            messages.error(request, "invalid date format")
+            return render(request, 'expenses/add_expenses.html', context)
+
+
         Expense.objects.create(amount=amount, date=date, category=category, description=description, owner=request.user)
         messages.success(request, 'Expenses saved succesfully')
         return redirect('expenses') 
@@ -76,7 +84,6 @@ def edit_expense(request, id):
 
 
         expenses = Expense.objects.filter(owner=request.user)
-
 
         context = {
             'expenses': expenses,
