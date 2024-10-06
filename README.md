@@ -6,10 +6,6 @@ User Registration and Login: Users can sign up, log in, and manage their account
 Expense Management: Track expenses with categories, dates, and amounts. Update or delete them as needed.
 Data Visualization: Provides insights into spending habits through visual tools.
 
-## Locally:
-
-All database migrations and functionalities, including user registration and CRUD operations, work as expected.
-
 <img width="1710" alt="Screenshot 2024-09-08 at 5 24 39 PM" src="https://github.com/user-attachments/assets/d4dfdfe5-5920-4ab6-81a4-72e8014d6a88">
 
 <img width="801" alt="Screenshot 2024-09-08 at 12 50 20 PM" src="https://github.com/user-attachments/assets/93deb343-a31c-4cdf-9816-2e0098ce8868">
