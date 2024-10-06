@@ -6,11 +6,6 @@ User Registration and Login: Users can sign up, log in, and manage their account
 Expense Management: Track expenses with categories, dates, and amounts. Update or delete them as needed.
 Data Visualization: Provides insights into spending habits through visual tools.
 
-## Deployment
-Trackify is deployed on Render. You can check it out here: [Trackify on Render](https://trackify-ad7x.onrender.com). 
-
-test account: **Username:** testing1  **Pasword:** testing
-
 ## Locally:
 
 All database migrations and functionalities, including user registration and CRUD operations, work as expected.
@@ -24,3 +19,7 @@ All database migrations and functionalities, including user registration and CRU
 
 <img width="1706" alt="Screenshot 2024-09-08 at 5 25 44 PM" src="https://github.com/user-attachments/assets/01959631-8144-4154-9409-c7e871574e02">
 
+## Deployment
+Trackify is deployed on Render. You can check it out here: [Trackify on Render](https://trackify-ad7x.onrender.com). 
+
+test account: **Username:** testing1  **Pasword:** testing
