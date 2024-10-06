@@ -1,8 +1,6 @@
 <!doctype html>
 <head>
-    <!-- Custom Styles -->
     <style>
-        /* Ensure the body takes the full height */
         body {
             margin: 0;
             padding: 0;
@@ -10,7 +8,6 @@
             height: 100%;
         }
 
-        /* Sidebar Styling */
         .sidebar {
             height: calc(100vh - 70px); /* 100vh minus the navbar height */
             width: 250px;
@@ -23,16 +20,13 @@
             z-index: 1000; /* Below navbar but above content */
         }
 
-    
-
-        /* Toggle button container */
+        
         .toggle-button-container {
             position: absolute;
             top: 80px; /* Positioned below the navbar */
             left: 260px; /* Placed just outside the open sidebar */
             z-index: 1050; /* Ensure it is above the sidebar */
         }
-
 
         /* Sidebar Heading */
         .sidebar-heading {
@@ -44,44 +38,39 @@
             color: #6c757d;
         }
 
-
     </style>
 </head>
 
-    
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <!-- Navigation Links -->
+    <h5 class="px-3">Options</h5>
+    <ul class="nav flex-column px-3">
+        <li class="nav-item">
+            <a class="nav-link active d-flex align-items-center gap-2" href="{% url 'expenses' %}">
+                <span class="nav-link-text">Expenses</span>
+            </a>                   
+        </li>
+    </ul>
 
-    <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
-        <!-- Navigation Links -->
-        <h5 class="px-3">Options</h5>
-        <ul class="nav flex-column px-3">
-            <li class="nav-item">
-                <a class="nav-link active d-flex align-items-center gap-2" href="{% url 'expenses' %}">
-                    <span class="nav-link-text">Expenses</span>
-                </a>                   
-            </li>
-        </ul>
+    <!-- Summaries Section -->
+    <h6 class="sidebar-heading">Summaries</h6>
+    <ul class="nav flex-column px-3">
+        <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-2" href="{% url 'expense_summary'%}">
+                <span class="nav-link-text">Expense Summary</span>
+            </a>
+        </li>
+    </ul>
 
-        <!-- Summaries Section -->
-        <h6 class="sidebar-heading">Summaries</h6>
-        <ul class="nav flex-column px-3">
-            <li class="nav-item">
-                <a class="nav-link d-flex align-items-center gap-2" href="{% url 'expense_summary'%}">
-                    <span class="nav-link-text">Expense Summary</span>
-                </a>
-            </li>
-
-
-        <h6 class="sidebar-heading">Settings</h6>
-        <ul class="nav flex-column px-3">
-            <li class="nav-item">
-                <a class="nav-link d-flex align-items-center gap-2" href="{% url 'preferences' %}">
-                    <span class="nav-link-text" href="{% url 'preferences' %}">General</span>
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-
-
+    <!-- Settings Section -->
+    <h6 class="sidebar-heading">Settings</h6>
+    <ul class="nav flex-column px-3">
+        <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-2" href="{% url 'preferences' %}">
+                <span class="nav-link-text">General</span>
+            </a>
+        </li>
+    </ul>
+</div>
 

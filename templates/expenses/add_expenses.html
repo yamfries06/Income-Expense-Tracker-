@@ -1,7 +1,25 @@
 {% extends 'base.html'%}
 
+<style> 
+    .content-container {
+        margin-left: 260px; /* Same width as your navbar */
+        padding-top: 80px; /* Your padding from the top */
+        width: calc(100% - 260px); /* Ensures content starts after the navbar */
+    }
+
+    @media (max-width: 768px) {
+        /* Adjust for smaller screens if needed */
+        .content-container {
+            margin-left: 0;
+            width: 100%;
+            padding-left: 0;
+        }
+    }
+</style> 
+
+
 {%block content%}
-<div class="container mt-4" style="padding-top: 80px; padding-left: 260px;"> 
+<div class="container mt-4;"> 
    
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
@@ -13,7 +31,6 @@
       <li class="breadcrumb-item active" aria-current="page">Add expenses</li>
     </ol>
   </nav>
-
 
   <div class="container mt-5">
     <div class="card">
@@ -57,7 +74,6 @@
     </div>
 </div>
  
-
 </div> 
   
 

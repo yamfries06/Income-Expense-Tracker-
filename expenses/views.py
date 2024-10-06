@@ -45,7 +45,6 @@ def add_expense(request):
         description=request.POST['description']
         category=request.POST['category']
         date=request.POST['date']
-
         if not amount:
             messages.error(request, "Amount not specified")
             return render(request, 'expenses/add_expenses.html', context)
@@ -144,6 +143,7 @@ class generate_summary(View):
                 
                 if plt:  
                     plt.clf()
+                
                 plt.bar(formatted_dates, amounts, color="brown")
                 plt.xlabel("Dates")
                 plt.ylabel("Amount Spent")
