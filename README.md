@@ -1,4 +1,4 @@
-# Trackify
+# Trackify (this was my first ever project....)
 Trackify is designed for users to manage, visualize, and improve their spending habits. It includes login, registration, and full CRUD functionality for expense tracking.
 
 ## Features
